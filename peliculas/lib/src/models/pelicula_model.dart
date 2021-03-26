@@ -1,6 +1,6 @@
 class Peliculas {
 
-  List<Pelicula> items = new List<Pelicula>();
+  List<Pelicula> items = [];
 
   Peliculas();
 
@@ -15,6 +15,7 @@ class Peliculas {
 }
 
 class Pelicula {
+  String uniqueId;
   int voteCount;
   int id;
   bool video;
@@ -69,6 +70,15 @@ class Pelicula {
       return 'https://www.juegosgratisxd.com/wp-content/themes/mat/images/noimg.png';
     } else {
       return 'https://image.tmdb.org/t/p/w500/$posterPath';
+    }
+  }
+
+
+  getBackdropPath() {
+    if(backdropPath == null) {
+      return 'https://www.juegosgratisxd.com/wp-content/themes/mat/images/noimg.png';
+    } else {
+      return 'https://image.tmdb.org/t/p/w500/$backdropPath';
     }
   }
 

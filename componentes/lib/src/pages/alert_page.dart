@@ -5,7 +5,7 @@ class AlertPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Alert Page'),
+        title: Text('angie'),
       ),
       body: Center(
         child: Container(
@@ -14,7 +14,7 @@ class AlertPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               RaisedButton(
-                child: Text('Mostrar Alerta'),
+                child: Text('Mostrar Mensaje'),
                 color: Colors.blue,
                 textColor: Colors.white,
                 onPressed: () => _mostrarAlerta(context),
