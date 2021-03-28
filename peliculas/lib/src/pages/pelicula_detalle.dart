@@ -12,14 +12,17 @@ class PeliculaDetalle extends StatelessWidget {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          _crearAppBar(pelicula),
+          crearAppBar(pelicula),
           SliverList(
               delegate: SliverChildListDelegate(
                 [
                   SizedBox(height: 10.0,),
-                  _posterTitulo(context, pelicula),
-                  _descripcion(pelicula),
-                  _crearCasting(pelicula)
+                  posterTitulo(context, pelicula),
+                  descripcion(pelicula),
+                  descripcion(pelicula),
+                  descripcion(pelicula),
+                  descripcion(pelicula),
+                  crearCasting(pelicula)
                 ]
               )
           )
@@ -28,7 +31,7 @@ class PeliculaDetalle extends StatelessWidget {
     );
   }
 
-  Widget _crearAppBar(Pelicula pelicula) {
+  Widget crearAppBar(Pelicula pelicula) {
     return SliverAppBar(
       elevation: 2.0,
       backgroundColor: Colors.indigoAccent,
@@ -54,7 +57,7 @@ class PeliculaDetalle extends StatelessWidget {
     );
   }
 
-  Widget _posterTitulo(BuildContext context, Pelicula pelicula) {
+  Widget posterTitulo(BuildContext context, Pelicula pelicula) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20.0),
       child: Row(
@@ -90,7 +93,7 @@ class PeliculaDetalle extends StatelessWidget {
     );
   }
 
-  Widget _descripcion(Pelicula pelicula) {
+  Widget descripcion(Pelicula pelicula) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
       child: Text(
@@ -100,7 +103,7 @@ class PeliculaDetalle extends StatelessWidget {
     );
   }
 
-  Widget _crearCasting(Pelicula pelicula) {
+  Widget crearCasting(Pelicula pelicula) {
 
     final peliProvider = new PeliculasProvider();
 
@@ -108,7 +111,7 @@ class PeliculaDetalle extends StatelessWidget {
       future: peliProvider.getCast(pelicula.id.toString()),
       builder: (context, AsyncSnapshot<List> snapshot) {
         if (snapshot.hasData) {
-          return _crearActoresPageView(snapshot.data);
+          return crearActoresPageView(snapshot.data);
         } else {
           return Center(child: CircularProgressIndicator(),);
         }
@@ -116,7 +119,7 @@ class PeliculaDetalle extends StatelessWidget {
     );
   }
 
-  Widget _crearActoresPageView(List<Actor> actores) {
+  Widget crearActoresPageView(List<Actor> actores) {
     return SizedBox(
       height: 200.0,
       child: PageView.builder(
@@ -126,12 +129,12 @@ class PeliculaDetalle extends StatelessWidget {
           initialPage: 1
         ),
         itemCount: actores.length,
-        itemBuilder: (context, i) => _actortarjeta(actores[i])
+        itemBuilder: (context, i) => actortarjeta(actores[i])
       ),
     );
   }
 
-  Widget _actortarjeta(Actor actor) {
+  Widget actortarjeta(Actor actor) {
     return Container(
       child: Column (
         children: [

@@ -74,6 +74,7 @@ class LoginScreen extends StatelessWidget {
 
                     SizedBox(height: 10.0,),
 
+                     // ignore: deprecated_member_use
                      RaisedButton (
                       color: Colors.yellow,
                       textColor: Colors.black,
