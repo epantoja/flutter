@@ -13,6 +13,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
 
+  final amber= Colors.amber;
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,17 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        fontFamily: 'Jellee Roman'
+        fontFamily: 'Jellee Roman',
+        inputDecorationTheme: InputDecorationTheme(
+          hintStyle: TextStyle(
+            color: amber,
+            fontSize: 14.0
+          ), 
+          labelStyle: TextStyle(
+            color: amber,
+          ),
+          border: InputBorder.none,
+        )
       ),
       initialRoute: 'inicio',
       routes: {
