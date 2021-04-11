@@ -6,11 +6,13 @@ class TextFieldWidget extends StatefulWidget {
   final String labelText;
   final String hintText;
   final TextInputType typeInput;
+  final IconData icono;
+  final Color colorIcono;
   final bool isPassword;
   
 
   TextFieldWidget({@required this.labelText, @required this.hintText, 
-                  @required this.typeInput, this.isPassword = false});
+                  @required this.typeInput, this.isPassword = false, this.icono, this.colorIcono});
 
   @override
   _TextFieldWidgetState createState() => _TextFieldWidgetState();
@@ -22,18 +24,22 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
   bool _isPassword = false; 
   String _labelText = '';
   String _hintText = '';
+  IconData _icono = null;
+  Color _colorIcono;
   TextInputType _typeInput = null;
   
   @override
-    void initState() {
-      super.initState();
+  void initState() {
+    super.initState();
 
-      _hidePassword = widget.isPassword;
-      _isPassword = widget.isPassword;
-      _labelText = widget.labelText;
-      _hintText = widget.hintText;
-      _typeInput = widget.typeInput;
-    }
+    _hidePassword = widget.isPassword;
+    _isPassword = widget.isPassword;
+    _labelText = widget.labelText;
+    _hintText = widget.hintText;
+    _typeInput = widget.typeInput;
+    _icono = widget.icono;
+    _colorIcono = widget.colorIcono;
+  }
 
   
 
@@ -59,6 +65,10 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
             decoration: InputDecoration(
               hintText: _hintText,
               labelText: _labelText,
+              prefixIcon: _icono != null ? Icon(
+                _icono,
+                color: _colorIcono != null ? _colorIcono : Colors.black45,
+              ): null,
               suffixIcon: _isPassword ? IconButton(
                 alignment: Alignment.centerRight,
                 onPressed: () {

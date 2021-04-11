@@ -50,11 +50,11 @@ class AlertPage extends StatelessWidget {
             ],
           ),
           actions: <Widget>[
-            FlatButton(
+            TextButton(
               child: Text('Cancelar', style: TextStyle(fontSize: 15.0)),
               onPressed: () => Navigator.of(context).pop(),
             ),
-            FlatButton(
+            TextButton(
               child: Text('Ok', style: TextStyle(fontSize: 15.0)),
               onPressed: () {
                 Navigator.of(context).pop();

@@ -1,6 +1,8 @@
 import 'package:finkidz/src/pages/inicio_page.dart';
 import 'package:finkidz/src/pages/inicio_sesion_page.dart';
-import 'package:finkidz/src/pages/olvido_contrasena_page.dart';
+import 'package:finkidz/src/pages/recuperar_contrasena/cambio_contrasena_page.dart';
+import 'package:finkidz/src/pages/recuperar_contrasena/ingresar_codigo_page.dart';
+import 'package:finkidz/src/pages/recuperar_contrasena/olvido_contrasena_page.dart';
 import 'package:finkidz/src/pages/registro_page.dart';
 import 'package:finkidz/src/pages/seleccionar_usuario_page.dart';
 import 'package:flutter/material.dart';
@@ -45,9 +47,11 @@ class MyApp extends StatelessWidget {
       routes: {
         'inicio': (BuildContext context) => InicioPage(),
         'seleccionusuario': (BuildContext context) => SeleccionarUsuarioPage(),
-        'inicioSesion': (BuildContext context) => InicioSesionPage(),
+        'iniciosesion': (BuildContext context) => InicioSesionPage(),
         'registro': (BuildContext context) => RegistroPage(),
-        'olvidoContrasena': (BuildContext context) => OlvidoContrasenaPage(),
+        'olvidocontrasena': (BuildContext context) => OlvidoContrasenaPage(),
+        'ingresacodigocontrasena': (BuildContext context) => IngresarCodigoPage(),
+        'cambiocontrasena': (BuildContext context) => CambioContrasenaPage(),
       },
     );
   }

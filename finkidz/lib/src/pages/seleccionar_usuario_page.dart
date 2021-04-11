@@ -2,7 +2,7 @@ import 'package:finkidz/src/models/boton_seleccion_model.dart';
 import 'package:finkidz/src/widgets/boton_principal_widget.dart';
 import 'package:finkidz/src/widgets/boton_seleccion_widget.dart';
 import 'package:finkidz/src/widgets/fondo_widget.dart';
-import 'package:finkidz/src/widgets/logo_banner_widget.dart';
+import 'package:finkidz/src/widgets/logo_return_banner_widget.dart';
 import 'package:flutter/material.dart';
 
 class SeleccionarUsuarioPage extends StatefulWidget {
@@ -34,12 +34,8 @@ class _SeleccionarUsuarioPageState extends State<SeleccionarUsuarioPage>  {
     return Column(
       children: [
         Container(
-           padding: EdgeInsets.only(
-            top: 20.0,
-            bottom: 20.0
-          ),
           //child: _crearBoton("Saltar")
-          child: LogoBannerWidget()
+          child: LogoReturnBannerWidget()
         ),
         SizedBox(height: 20.0,),
         Container(
@@ -59,7 +55,7 @@ class _SeleccionarUsuarioPageState extends State<SeleccionarUsuarioPage>  {
           //height: MediaQuery.of(context).size.height * 0.25,
           //child: _crearBoton("Saltar")
           child: BotonPrincipalWidget(tituloBoton: "SIGUIENTE", onPressed: () {
-            Navigator.pushNamed(context, "inicioSesion", arguments: _selectIndexPadre);
+            Navigator.pushNamed(context, "iniciosesion", arguments: _selectIndexPadre);
           },),
         ),
       ],

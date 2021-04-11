@@ -1,7 +1,7 @@
 
 import 'package:finkidz/src/widgets/boton_principal_widget.dart';
 import 'package:finkidz/src/widgets/fondo_widget.dart';
-import 'package:finkidz/src/widgets/logo_banner_widget.dart';
+import 'package:finkidz/src/widgets/logo_return_banner_widget.dart';
 import 'package:finkidz/src/widgets/textfield_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -38,28 +38,22 @@ class _InicioSesionPageState extends State<InicioSesionPage>  {
 
   Widget _cuerpoPagina(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Container(
-          padding: EdgeInsets.only(
-            top: 20.0
-          ),
           //child: _crearBoton("Saltar")
-          child: LogoBannerWidget()
+          child: LogoReturnBannerWidget()
         ),
         SizedBox(height: 20.0,),
         Container(
           padding: EdgeInsets.symmetric(horizontal: 80.0),
-          height: MediaQuery.of(context).size.height * 0.05,
           //child: _crearBoton("Saltar")
           child: Text("Iniciar sesión" , 
                   style: TextStyle(color: Colors.white, fontSize: 20.0), textAlign: TextAlign.center,)
         ),
-        SingleChildScrollView(
-          child: Container(
+        SizedBox(height: 20.0,),
+        Container(
             //child: _crearBoton("Saltar")
             child: _controles(context)
-          ),
         ),
       ],
     );
@@ -69,11 +63,10 @@ class _InicioSesionPageState extends State<InicioSesionPage>  {
     return Column(
       children: [
         
-        TextFieldWidget(hintText: "", labelText: "Correo eléctronico", typeInput: TextInputType.text, isPassword: false,),
-        SizedBox(height: 10.0,),
+        TextFieldWidget(hintText: "", labelText: "Correo electrónico", typeInput: TextInputType.emailAddress, isPassword: false,),
         TextFieldWidget(hintText: "", labelText: "Contraseña", typeInput: TextInputType.text, isPassword: true,),
         TextButton(
-          onPressed: () => Navigator.pushNamed(context, "olvidoContrasena"),
+          onPressed: () => Navigator.pushNamed(context, "olvidocontrasena"),
           child: Text(
             "¿Olvidaste tu contraseña?", style: TextStyle(color: Colors.white, fontSize: 18.0)
           ),

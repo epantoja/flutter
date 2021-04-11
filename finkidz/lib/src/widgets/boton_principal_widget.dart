@@ -36,7 +36,6 @@ class _BotonPrincipalWidgetState extends State<BotonPrincipalWidget> {
               ),
               onPrimary: Colors.white,
               primary: Color.fromRGBO(30, 221, 198, 1.0),
-              
             ),
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),

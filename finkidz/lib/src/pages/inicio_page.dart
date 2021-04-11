@@ -180,37 +180,6 @@ class InicioPage extends StatelessWidget {
     );
   }
 
-  Widget _crearBoton(String titulo) {
-    return Container(
-      padding: EdgeInsets.only(
-        right: 25.0,
-        top: 40.0
-      ),
-      alignment: Alignment.topRight,
-      child: SafeArea(
-        child:  ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              elevation: 10,
-              shape:  RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15.0),
-              ),
-              onPrimary: Colors.white,
-              primary: Color.fromRGBO(30, 221, 198, 1.0),
-              
-            ),
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
-              child: Text(titulo, style: TextStyle(fontSize: 18.0),),
-            ),
-            onPressed: () {
-
-            },
-
-          ),
-      ),
-    );
-  }
-
   Widget _crearBotonPagina4(BuildContext context, String titulo) {
     
     return Container(
@@ -263,7 +232,7 @@ class InicioPage extends StatelessWidget {
     */
   }
 
- Widget _agregarLogoTexto(BuildContext context, double height, String rutaImagen, Color color, String titulo, String subtitulo, String descripcion) {
+  Widget _agregarLogoTexto(BuildContext context, double height, String rutaImagen, Color color, String titulo, String subtitulo, String descripcion) {
     return Column(
         children: [
           SizedBox(height: height),
@@ -284,7 +253,7 @@ class InicioPage extends StatelessWidget {
       );
   }
 
- Widget _agregarPaginacion(int index) {
+  Widget _agregarPaginacion(int index) {
     return Container(
       padding: EdgeInsets.only(right: 40.0),
       child: Row(

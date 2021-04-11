@@ -1,6 +1,6 @@
 import 'package:finkidz/src/widgets/boton_principal_widget.dart';
 import 'package:finkidz/src/widgets/fondo_widget.dart';
-import 'package:finkidz/src/widgets/logo_banner_widget.dart';
+import 'package:finkidz/src/widgets/logo_return_banner_widget.dart';
 import 'package:finkidz/src/widgets/textfield_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -31,28 +31,21 @@ class _RegistroPageState extends State<RegistroPage> {
 
   Widget _cuerpoPagina(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Container(
-          padding: EdgeInsets.only(
-            top: 20.0,
-            bottom: 20.0
-          ),
           //child: _crearBoton("Saltar")
-          child: LogoBannerWidget()
+          child: LogoReturnBannerWidget()
         ),
+        SizedBox(height: 20.0,),
         Container(
           padding: EdgeInsets.symmetric(horizontal: 80.0),
-          height: MediaQuery.of(context).size.height * 0.05,
           //child: _crearBoton("Saltar")
           child: Text("Registro" , 
                   style: TextStyle(color: Colors.white, fontSize: 20.0), textAlign: TextAlign.center,)
         ),
-        SingleChildScrollView(
-          child: Container(
-            //child: _crearBoton("Saltar")
-            child: _controles(context)
-          ),
+        SizedBox(height: 20.0,),
+        Container(
+          child: _controles(context)
         ),
       ],
     );
@@ -89,7 +82,7 @@ class _RegistroPageState extends State<RegistroPage> {
         },),
         SizedBox(height: 10.0,),
         TextButton(
-          onPressed: () => Navigator.pushNamed(context, "olvidoContrasena"),
+          onPressed: () => Navigator.pop(context),
           child: Text(
             "¿Ya tienes cuenta? Inicia sesión", style: TextStyle(color: Colors.white, fontSize: 18.0)
           ),
