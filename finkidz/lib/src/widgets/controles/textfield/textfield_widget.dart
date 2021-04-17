@@ -24,9 +24,9 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
   bool _isPassword = false; 
   String _labelText = '';
   String _hintText = '';
-  IconData _icono = null;
+  IconData _icono;
   Color _colorIcono;
-  TextInputType _typeInput = null;
+  TextInputType _typeInput;
   
   @override
   void initState() {
@@ -51,12 +51,16 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
         Container(
           child: Image(
             image: AssetImage('assets/img/barra_texto.png'),
-            width: 350.0,
-            height: 80.0,
+            width: double.infinity,
           ),
-        ),
+        ), 
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 5.0),
+          margin: EdgeInsets.only(
+            top: 5.0,
+            left: 30.0,
+            right: 30.0
+          ),
+          alignment: Alignment.centerLeft,
           child: TextField(
             keyboardType: _typeInput,
             obscureText: _hidePassword,

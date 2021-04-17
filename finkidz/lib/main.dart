@@ -1,10 +1,12 @@
 import 'package:finkidz/src/pages/inicio_page.dart';
 import 'package:finkidz/src/pages/inicio_sesion_page.dart';
+import 'package:finkidz/src/pages/principal_page.dart';
 import 'package:finkidz/src/pages/recuperar_contrasena/cambio_contrasena_page.dart';
 import 'package:finkidz/src/pages/recuperar_contrasena/ingresar_codigo_page.dart';
 import 'package:finkidz/src/pages/recuperar_contrasena/olvido_contrasena_page.dart';
 import 'package:finkidz/src/pages/registro_page.dart';
 import 'package:finkidz/src/pages/seleccionar_usuario_page.dart';
+import 'package:finkidz/src/widgets/splash_screen/splash_screen_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -24,11 +26,18 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
-    
+
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      //systemNavigationBarColor: Colors.blue, // navigation bar color
+      statusBarColor: Colors.transparent, // status bar color
+      //statusBarBrightness: Brightness.dark,//status bar brigtness
+      statusBarIconBrightness:Brightness.light , //status barIcon Brightness
+      //systemNavigationBarDividerColor: Colors.greenAccent,//Navigation bar divider color
+      //systemNavigationBarIconBrightness: Brightness.light, //navigation bar icon 
+    ));
     
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         fontFamily: 'Jellee Roman',
@@ -43,9 +52,11 @@ class MyApp extends StatelessWidget {
           border: InputBorder.none,
         )
       ),
-      initialRoute: 'inicio',
+      initialRoute: 'splash',
       routes: {
+        'splash': (BuildContext context) => SplashWidget(),
         'inicio': (BuildContext context) => InicioPage(),
+        'principal': (BuildContext context) => PrincipalPage(),
         'seleccionusuario': (BuildContext context) => SeleccionarUsuarioPage(),
         'iniciosesion': (BuildContext context) => InicioSesionPage(),
         'registro': (BuildContext context) => RegistroPage(),

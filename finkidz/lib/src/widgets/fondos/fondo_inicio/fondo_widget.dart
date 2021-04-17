@@ -18,11 +18,14 @@ class FondoWidget extends StatelessWidget {
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage('assets/img/bg1.png'),
-                    fit: BoxFit.fill,
+                    fit: BoxFit.cover,
                   ),
                 ),
                 child: SingleChildScrollView(
-                  child: body
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child:  body,
+                  ),
                 ),
               ),
             ),

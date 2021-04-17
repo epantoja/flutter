@@ -1,9 +1,10 @@
 
-import 'package:finkidz/src/widgets/boton_principal_widget.dart';
-import 'package:finkidz/src/widgets/fondo_widget.dart';
-import 'package:finkidz/src/widgets/logo_return_banner_widget.dart';
-import 'package:finkidz/src/widgets/textfield_widget.dart';
+import 'package:finkidz/src/widgets/controles/boton_principal/boton_principal_widget.dart';
+import 'package:finkidz/src/widgets/fondos/fondo_inicio/fondo_widget.dart';
+import 'package:finkidz/src/widgets/logos/logo_return_banner/logo_return_banner_widget.dart';
+import 'package:finkidz/src/widgets/controles/textfield/textfield_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class InicioSesionPage extends StatefulWidget {
   @override
@@ -12,24 +13,32 @@ class InicioSesionPage extends StatefulWidget {
 
 class _InicioSesionPageState extends State<InicioSesionPage>  {
 
+  @override
+  void initState() { 
+    super.initState();
+  }
+
   final amber= Colors.amber;
   bool hidePassword = true;
   final _formKey = GlobalKey();
-  int _selectIndexPadre = 0;
+  int _selectIndexPadre;
   
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent, 
+      statusBarIconBrightness:Brightness.light 
+    ));
+    
     _selectIndexPadre = ModalRoute.of(context).settings.arguments;
+    
     return Scaffold(
         resizeToAvoidBottomInset: false,
         body: FondoWidget(
           body: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Form(
-                key: _formKey,
-                child : _cuerpoPagina(context),
-              ),
+            child: Form(
+              key: _formKey,
+              child : _cuerpoPagina(context),
             ),
           ),
         )
@@ -73,7 +82,7 @@ class _InicioSesionPageState extends State<InicioSesionPage>  {
         ),
         SizedBox(height: 15.0,),
         BotonPrincipalWidget(tituloBoton: "INICIAR SESIÓN", onPressed: () {
-          
+          Navigator.pushNamed(context, "principal");
         },),
         SizedBox(height: 15.0,),
         Column(

@@ -1,8 +1,8 @@
-import 'package:finkidz/src/widgets/boton_principal_widget.dart';
-import 'package:finkidz/src/widgets/fondo_widget.dart';
-import 'package:finkidz/src/widgets/logo_return_banner_widget.dart';
-import 'package:finkidz/src/widgets/modal_findkiz_widget.dart';
-import 'package:finkidz/src/widgets/textfield_widget.dart';
+import 'package:finkidz/src/widgets/controles/boton_principal/boton_principal_widget.dart';
+import 'package:finkidz/src/widgets/fondos/fondo_inicio/fondo_widget.dart';
+import 'package:finkidz/src/widgets/logos/logo_return_banner/logo_return_banner_widget.dart';
+import 'package:finkidz/src/widgets/modals/modal_findkiz/modal_findkiz_widget.dart';
+import 'package:finkidz/src/widgets/controles/textfield/textfield_widget.dart';
 import 'package:flutter/material.dart';
 
 class CambioContrasenaPage extends StatelessWidget {
@@ -13,10 +13,7 @@ class CambioContrasenaPage extends StatelessWidget {
         resizeToAvoidBottomInset: false,
         body: FondoWidget(
           body: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: _cuerpoPagina(context)
-            ),
+            child: _cuerpoPagina(context)
           ),
         )
       );

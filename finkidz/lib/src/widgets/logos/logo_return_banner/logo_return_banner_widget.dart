@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class LogoReturnBannerWidget extends StatelessWidget {
 
@@ -7,7 +8,9 @@ class LogoReturnBannerWidget extends StatelessWidget {
     return  Column(
       children: [
         GestureDetector(
-          onTap: () => Navigator.pop(context),
+          onTap: () {
+            Navigator.pop(context);
+          },
           child: Container(
             alignment: Alignment.topLeft,
             child: Image(

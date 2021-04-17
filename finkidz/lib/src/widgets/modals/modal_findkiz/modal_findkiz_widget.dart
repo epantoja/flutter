@@ -1,4 +1,4 @@
-import 'package:finkidz/src/widgets/boton_principal_widget.dart';
+import 'package:finkidz/src/widgets/controles/boton_principal/boton_principal_widget.dart';
 import 'package:flutter/material.dart';
 
 class ModalFindkizWidget extends StatefulWidget {
@@ -21,11 +21,10 @@ class _ModalFindkizWidgetState extends State<ModalFindkizWidget> {
 
   @override
   void initState() {
-    super.initState();
-
     _rutaImagen = widget.rutaImagen;
     _mensaje = widget.mensaje;
     _textoBoton = widget.textoBoton;
+    super.initState();
   }
 
   @override

@@ -1,9 +1,10 @@
-import 'package:finkidz/src/widgets/boton_principal_widget.dart';
-import 'package:finkidz/src/widgets/fondo_widget.dart';
-import 'package:finkidz/src/widgets/logo_return_banner_widget.dart';
-import 'package:finkidz/src/widgets/textfield_widget.dart';
+import 'package:finkidz/src/widgets/controles/boton_principal/boton_principal_widget.dart';
+import 'package:finkidz/src/widgets/fondos/fondo_inicio/fondo_widget.dart';
+import 'package:finkidz/src/widgets/logos/logo_return_banner/logo_return_banner_widget.dart';
+import 'package:finkidz/src/widgets/controles/textfield/textfield_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 
 class RegistroPage extends StatefulWidget {
   @override
@@ -11,6 +12,11 @@ class RegistroPage extends StatefulWidget {
 }
 
 class _RegistroPageState extends State<RegistroPage> {
+
+  @override
+  void initState() { 
+    super.initState();
+  }
 
   bool _aceptaTerminos = false;
 
@@ -20,10 +26,7 @@ class _RegistroPageState extends State<RegistroPage> {
         resizeToAvoidBottomInset: false,
         body: FondoWidget(
           body: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: _cuerpoPagina(context),
-            ),
+            child: _cuerpoPagina(context),
           ),
         )
       );
@@ -60,21 +63,26 @@ class _RegistroPageState extends State<RegistroPage> {
         TextFieldWidget(hintText: "", labelText: "Contraseña", typeInput: TextInputType.visiblePassword, isPassword: true,),
         TextFieldWidget(hintText: "", labelText: "Repetir contraseña", typeInput: TextInputType.visiblePassword, isPassword: true,),
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+          
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Checkbox(
-                activeColor:  Color.fromRGBO(30, 221, 198, 1.0),
-                checkColor: Colors.white,
-                value: _aceptaTerminos,
-                onChanged: (value) {
-                  setState(() {
-                    _aceptaTerminos = value;
-                  });
-                },
+              Container(
+                child: Checkbox(
+                  activeColor:  Color.fromRGBO(30, 221, 198, 1.0),
+                  checkColor: Colors.white,
+                  value: _aceptaTerminos,
+                  onChanged: (value) {
+                    setState(() {
+                      _aceptaTerminos = value;
+                    });
+                  },
+                ),
               ),
-              Text('Acepto los términos y condiciones', style: TextStyle(color: Colors.white), textAlign: TextAlign.center),
+              Container(
+                child: Text('Acepto los términos y condiciones', 
+                style: TextStyle(color: Colors.white), textAlign: TextAlign.center),
+              ),
           ]),
         ),
         BotonPrincipalWidget(tituloBoton: "REGISTRARME", onPressed: () {

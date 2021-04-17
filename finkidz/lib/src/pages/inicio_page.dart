@@ -1,25 +1,39 @@
 
 import 'package:flutter/material.dart';
 
-class InicioPage extends StatelessWidget { 
+class InicioPage extends StatefulWidget {
+  InicioPage({Key key}) : super(key: key);
+
+  @override
+  _InicioPageState createState() => _InicioPageState();
+}
+
+class _InicioPageState extends State<InicioPage> {
+
+  @override
+  void initState() { 
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: Container(
         child: PageView(
           children: [
-            _pagina1(),
+            //_pagina1(),
             _pagina2(context),
             _pagina3(context),
             _pagina4(context),
           ],
+          pageSnapping: true,
         ),
       )
     );
   }
 
-  
+  /*
   Widget _pagina1() {
     return Stack(
       children: [
@@ -28,6 +42,7 @@ class InicioPage extends StatelessWidget {
       ],
     );
   }
+  */
 
   Widget _pagina2(BuildContext context) {
     return Stack(
@@ -85,6 +100,7 @@ class InicioPage extends StatelessWidget {
     );
   }
 
+  /*
   Widget _agregarLogoPag1() {
     return SafeArea(
       child: Column(
@@ -108,6 +124,7 @@ class InicioPage extends StatelessWidget {
       ),
     );
   }
+  */
 
   Widget _cuerpoPagina2(BuildContext context) {
     return SafeArea(
@@ -322,5 +339,4 @@ class InicioPage extends StatelessWidget {
       ),
     );
   }
-
 }

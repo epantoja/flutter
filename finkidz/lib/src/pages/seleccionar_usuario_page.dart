@@ -1,8 +1,8 @@
 import 'package:finkidz/src/models/boton_seleccion_model.dart';
-import 'package:finkidz/src/widgets/boton_principal_widget.dart';
-import 'package:finkidz/src/widgets/boton_seleccion_widget.dart';
-import 'package:finkidz/src/widgets/fondo_widget.dart';
-import 'package:finkidz/src/widgets/logo_return_banner_widget.dart';
+import 'package:finkidz/src/widgets/controles/boton_principal/boton_principal_widget.dart';
+import 'package:finkidz/src/widgets/controles/boton_seleccion/boton_seleccion_widget.dart';
+import 'package:finkidz/src/widgets/fondos/fondo_inicio/fondo_widget.dart';
+import 'package:finkidz/src/widgets/logos/logo_return_banner/logo_return_banner_widget.dart';
 import 'package:flutter/material.dart';
 
 class SeleccionarUsuarioPage extends StatefulWidget {
@@ -12,6 +12,11 @@ class SeleccionarUsuarioPage extends StatefulWidget {
 
 
 class _SeleccionarUsuarioPageState extends State<SeleccionarUsuarioPage>  {
+
+  @override
+  void initState() { 
+    super.initState();
+  }
   
   int _selectIndexPadre = 0;
 
@@ -21,10 +26,7 @@ class _SeleccionarUsuarioPageState extends State<SeleccionarUsuarioPage>  {
         resizeToAvoidBottomInset: false,
         body: FondoWidget(
           body: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child:  _pagina1(context),
-            ),
+            child: _pagina1(context),
           ),
         )
       );
@@ -67,7 +69,6 @@ class _SeleccionarUsuarioPageState extends State<SeleccionarUsuarioPage>  {
 
     List<BotonSeleccion> lista = [
       new BotonSeleccion(descripcion: "Soy padre", id: 1),
-      new BotonSeleccion(descripcion: "Soy hijo", id: 2),
     ];
 
     return BotonSeleccionWidget(
