@@ -71,6 +71,7 @@ class _ListaActividadesWidgetState extends State<ListaActividadesWidget> {
 
   Widget _metodoListaActividades() {
     List<Widget> listaWidget = [];
+    //nuevos cambios
     _listaActividad.forEach((element) { 
       listaWidget.add(ItemActividadWidget(
         actividad: element,
