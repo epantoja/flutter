@@ -1,4 +1,5 @@
 
+import 'package:finkidz/src/widgets/controles/boton_principal/boton_principal_widget.dart';
 import 'package:flutter/material.dart';
 
 class InicioPage extends StatefulWidget {
@@ -32,17 +33,6 @@ class _InicioPageState extends State<InicioPage> {
       )
     );
   }
-
-  /*
-  Widget _pagina1() {
-    return Stack(
-      children: [
-        _colorFondo(Color.fromRGBO(255, 217, 22, 1.0)),
-        _agregarLogoPag1()
-      ],
-    );
-  }
-  */
 
   Widget _pagina2(BuildContext context) {
     return Stack(
@@ -83,48 +73,24 @@ class _InicioPageState extends State<InicioPage> {
   }
 
   Widget _colorFondoInferior(Color color) {
+
+    var size = MediaQuery.of(context).size;
+
     return Positioned(
       bottom: 0.0,
       right: 0.0,
       left: 0.0,
-      child: Container(
-        width: 0,
-        height: 500.0,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.elliptical(450.0, 250.0),
+      child: ClipPath(
+        clipper: MyClipperClipper(),
+        child: Container(
+          height: size.height * 0.6,
+          decoration:  BoxDecoration(
+            color: color
           ),
-          color: color
         ),
       ),
     );
   }
-
-  /*
-  Widget _agregarLogoPag1() {
-    return SafeArea(
-      child: Column(
-        children: [
-          Expanded(
-            child: Container()
-          ),
-          Image(
-            image: AssetImage('assets/img/logo_findkiz.png'),
-            width: 300.0,
-          ),
-          SizedBox(height: 50.0,),
-          Image(
-            image: AssetImage('assets/img/logo_cargando.png'),
-            width: 300.0,
-          ),
-          Expanded(
-            child: Container()
-          ),
-        ],
-      ),
-    );
-  }
-  */
 
   Widget _cuerpoPagina2(BuildContext context) {
     return SafeArea(
@@ -198,7 +164,6 @@ class _InicioPageState extends State<InicioPage> {
   }
 
   Widget _crearBotonPagina4(BuildContext context, String titulo) {
-    
     return Container(
       padding: EdgeInsets.only(
         top: 20.0,
@@ -206,47 +171,11 @@ class _InicioPageState extends State<InicioPage> {
       ),
       alignment: Alignment.topLeft,
       child: SafeArea(
-        child:  ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              elevation: 10,
-              shape:  RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15.0),
-              ),
-              onPrimary: Colors.white,
-              primary: Color.fromRGBO(30, 221, 198, 1.0),
-              
-            ),
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
-              child: Text(titulo, style: TextStyle(fontSize: 18.0),),
-            ),
-            
-            onPressed: () {
-              Navigator.pushNamed(context, "seleccionusuario");
-            },
-
-          ),
+        child: BotonPrincipalWidget(tituloBoton: titulo, onPressed: () {
+          Navigator.pushNamed(context, "seleccionusuario");
+        },) 
       ),
     );
-    
-    /*
-    return GestureDetector(
-      child: Container(
-       width:120,
-       height: 40,
-       decoration: BoxDecoration(
-         color: Colors.black,
-         image: DecorationImage(
-           image:AssetImage("assets/img/boton_principal.png"), 
-           fit:BoxFit.cover
-         ),
-       ),
-       child: Text("clickMe") // button text
-      ),onTap:(){
-        print("you clicked me");
-      }
-    );
-    */
   }
 
   Widget _agregarLogoTexto(BuildContext context, double height, String rutaImagen, Color color, String titulo, String subtitulo, String descripcion) {
@@ -255,7 +184,7 @@ class _InicioPageState extends State<InicioPage> {
           SizedBox(height: height),
           Image(
             image: AssetImage(rutaImagen),
-            width: MediaQuery.of(context).size.width * 0.65,
+            width: MediaQuery.of(context).size.width * 0.70,
           ),
           Text(titulo, style: TextStyle(color: color, fontSize: 18.0, )),
           Text(subtitulo, style: TextStyle(color: color, fontSize: 50.0, )),
@@ -265,7 +194,6 @@ class _InicioPageState extends State<InicioPage> {
                     style: TextStyle(color: color, fontSize: 18.0, ), 
                     textAlign: TextAlign.center),
           ),
-          
         ],
       );
   }
@@ -339,4 +267,27 @@ class _InicioPageState extends State<InicioPage> {
       ),
     );
   }
+}
+
+class MyClipperClipper extends CustomClipper<Path> {
+
+  @override
+  Path getClip(Size size) {
+    var path = new Path();
+    path.lineTo(0, size.height);
+    path.lineTo(size.width, size.height);
+    path.lineTo(size.width, 0);
+    var controllerPoint = Offset(10, size.height);
+    var endPoint = Offset(0, size.height / 2.5);
+    path.quadraticBezierTo(controllerPoint.dx, controllerPoint.dx, endPoint.dx, endPoint.dy);
+
+    //var controllerPoint = Offset(70, size.height);
+    //var endPoint = Offset(size.width, size.height / 2);
+    //path.quadraticBezierTo(controllerPoint.dx, controllerPoint.dx, endPoint.dx, endPoint.dy);
+    
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }

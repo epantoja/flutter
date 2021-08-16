@@ -9,14 +9,12 @@ class CambioContrasenaPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: FondoWidget(
-          body: Center(
-            child: _cuerpoPagina(context)
-          ),
-        )
-      );
+    
+    return FondoWidget(
+      body: Center(
+          child: _cuerpoPagina(context)
+        ),
+    );
   }
 
   

@@ -22,14 +22,11 @@ class _SeleccionarUsuarioPageState extends State<SeleccionarUsuarioPage>  {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: FondoWidget(
-          body: Center(
-            child: _pagina1(context),
-          ),
-        )
-      );
+    return FondoWidget(
+      body: Center(
+        child: _pagina1(context),
+      ),
+    );
   }
 
   Widget _pagina1(BuildContext context) {

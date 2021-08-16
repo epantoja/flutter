@@ -53,22 +53,30 @@ class _BotonSeleccionWidgetState extends State<BotonSeleccionWidget> {
       },
       child: Stack(
         children: [
-          Container(
-            alignment: Alignment.center,
-            child: Image(
-              image: _defaultSelectedIndex == index ? AssetImage('assets/img/boton_seleccionado.png') : AssetImage('assets/img/boton_seleccion.png'),
-              width: 300.0,
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.only(
-              top: 15.0
-            ),
-            alignment: Alignment.center,
-            child: Text(descripcion, style: TextStyle(color: Colors.black54, fontSize: 25.0),),
-          )
+          _metodoFondoImagen(index),
+          _metodoTextoBoton(descripcion)
         ],
       ),
+    );
+  }
+
+  Widget _metodoFondoImagen(int index) {
+    return Container(
+      alignment: Alignment.center,
+      child: Image(
+        image: _defaultSelectedIndex == index ? AssetImage('assets/img/boton_seleccionado.png') : AssetImage('assets/img/boton_seleccion.png'),
+        width: 300.0,
+      ),
+    );
+  }
+
+  Widget _metodoTextoBoton(String descripcion) {
+    return Container(
+      padding: EdgeInsets.only(
+        top: 15.0
+      ),
+      alignment: Alignment.center,
+      child: Text(descripcion, style: TextStyle(color: Colors.black54, fontSize: 25.0),),
     );
   }
 

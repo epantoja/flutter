@@ -32,8 +32,6 @@ class VideoState extends State<SplashWidget> with SingleTickerProviderStateMixin
   void initState() {
     super.initState();
 
-
-
     animationController =  AnimationController(
         vsync: this, duration:  Duration(seconds: 2));
     

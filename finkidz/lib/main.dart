@@ -1,3 +1,4 @@
+import 'package:finkidz/src/pages/ejemplo_page.dart';
 import 'package:finkidz/src/pages/inicio_page.dart';
 import 'package:finkidz/src/pages/inicio_sesion_page.dart';
 import 'package:finkidz/src/pages/principal_page.dart';
@@ -52,8 +53,9 @@ class MyApp extends StatelessWidget {
           border: InputBorder.none,
         )
       ),
-      initialRoute: 'splash',
+      initialRoute: 'inicio',
       routes: {
+        'ejemplo': (BuildContext context) => EjemploPage(), 
         'splash': (BuildContext context) => SplashWidget(),
         'inicio': (BuildContext context) => InicioPage(),
         'principal': (BuildContext context) => PrincipalPage(),

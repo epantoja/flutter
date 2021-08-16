@@ -46,52 +46,64 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
   @override
   Widget build(BuildContext context) {
     
+    var size = MediaQuery.of(context).size;
+
     return Stack(
       children: [
-        Container(
-          child: Image(
-            image: AssetImage('assets/img/barra_texto.png'),
-            width: double.infinity,
-          ),
-        ), 
-        Container(
-          margin: EdgeInsets.only(
-            top: 5.0,
-            left: 30.0,
-            right: 30.0
-          ),
-          alignment: Alignment.centerLeft,
-          child: TextField(
-            keyboardType: _typeInput,
-            obscureText: _hidePassword,
-            textInputAction: TextInputAction.next,
-            maxLines: 1,
-            decoration: InputDecoration(
-              hintText: _hintText,
-              labelText: _labelText,
-              prefixIcon: _icono != null ? Icon(
-                _icono,
-                color: _colorIcono != null ? _colorIcono : Colors.black45,
-              ): null,
-              suffixIcon: _isPassword ? IconButton(
-                alignment: Alignment.centerRight,
-                onPressed: () {
-                  setState(() 
-                  {
-                    _hidePassword = !_hidePassword;
-                  });
-                },
-                icon: Icon(
-                  _hidePassword
-                      ? Icons.visibility
-                      : Icons.visibility_off,
-                  color: Colors.black45,
-                ),
-              ): null,
-            ),
-          ),
-        ),
+        _metodoImagenFondo(size),
+        _metodoCajaTexto(size)
       ], 
+    );
+  }
+
+  Widget _metodoImagenFondo(Size size) {
+    return Container(
+      child: Image(
+        image: AssetImage('assets/img/barra_texto.png'),
+        width: size.width * 100,
+        //height: size.height * 0.10,
+      ),
+    );
+  }
+
+  Widget _metodoCajaTexto(Size size) {
+    return Container(
+      margin: EdgeInsets.only(
+        //top: size.height * 0.014,
+        left: 30.0,
+        right: 30.0
+      ),
+      child: TextField(
+        keyboardType: _typeInput,
+        obscureText: _hidePassword,
+        textInputAction: TextInputAction.next,
+        maxLines: 1,
+        decoration: InputDecoration(
+          hintText: _hintText,
+          labelText: _labelText,
+          prefixIcon: _icono != null ? Icon(
+            _icono,
+            color: _colorIcono != null ? _colorIcono : Colors.black45,
+            size: 27.0,
+          ): null,
+          suffixIcon: _isPassword ? IconButton(
+            iconSize: 27.0,
+            alignment: Alignment.centerRight,
+            onPressed: () {
+              setState(() 
+              {
+                _hidePassword = !_hidePassword;
+              });
+            },
+            icon: Icon(
+              _hidePassword
+                  ? Icons.visibility
+                  : Icons.visibility_off,
+              color: Colors.black45,
+            ),
+          ): null,
+        ),
+      ),
     );
   }
 }

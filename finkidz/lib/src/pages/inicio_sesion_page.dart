@@ -32,17 +32,14 @@ class _InicioSesionPageState extends State<InicioSesionPage>  {
     
     _selectIndexPadre = ModalRoute.of(context).settings.arguments;
     
-    return Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: FondoWidget(
-          body: Center(
-            child: Form(
-              key: _formKey,
-              child : _cuerpoPagina(context),
-            ),
-          ),
-        )
-      );
+    return FondoWidget(
+      body: Center(
+        child: Form(
+          key: _formKey,
+          child : _cuerpoPagina(context),
+        ),
+      ),
+    );
   }
 
   Widget _cuerpoPagina(BuildContext context) {

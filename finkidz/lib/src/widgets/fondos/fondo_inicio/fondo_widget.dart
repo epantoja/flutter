@@ -21,12 +21,16 @@ class FondoWidget extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                 ),
-                child: SingleChildScrollView(
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child:  body,
+                child: Scaffold(
+                  //resizeToAvoidBottomInset: false,
+                  backgroundColor: Colors.transparent,
+                  body: SingleChildScrollView(
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child:  body,
+                    ),
                   ),
-                ),
+                )
               ),
             ),
         ),
